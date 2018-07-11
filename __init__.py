@@ -12,16 +12,16 @@ class ControllerForRobotSkill(MycroftSkill):
 
     @intent_file_handler('robot.move.intent')
     def handle_ppt_open(self, message):
-    distance = message.data.get("distance")
-    if distance is None:
-        self.speak_dialog('robot.no.distance')
-        return
-    direction = message.data.get("direction")
-    if direction is None:
-        self.speak_dialgo('robot.no.direction')
-        return
-    resp = {'distance' : distance, 'direction' : direction}
-    self.speak_dialog('robot.move', data=resp)
+        distance = message.data.get("distance")
+        if distance is None:
+            self.speak_dialog('robot.no.distance')
+            return
+        direction = message.data.get("direction")
+        if direction is None:
+            self.speak_dialgo('robot.no.direction')
+            return
+        resp = {'distance' : distance, 'direction' : direction}
+        self.speak_dialog('robot.move', data=resp)
 
 
 def create_skill():
