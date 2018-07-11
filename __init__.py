@@ -6,7 +6,7 @@ class ControllerForRobotSkill(MycroftSkill):
     def __init__(self):
         MycroftSkill.__init__(self)
 
-    @intent_file_handler('robot.controller.intent'))
+    @intent_file_handler('robot.controller.intent')
     def handle_controller_for_robot(self, message):
         self.speak_dialog('controller.for.robot')
 
