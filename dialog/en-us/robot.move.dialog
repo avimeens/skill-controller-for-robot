@@ -1,1 +1,1 @@
-moving robot {{distance}} {{direction}}
+moving robot {{distance}} {{unit}} {{direction}}

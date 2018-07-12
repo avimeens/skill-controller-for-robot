@@ -10,18 +10,25 @@ class ControllerForRobotSkill(MycroftSkill):
         self.speak_dialog('controller.for.robot')
 
     @intent_file_handler('robot.move.intent')
-    def handle_ppt_open(self, message):
+    def handle_robot_move(self, message):
         distance = message.data.get("distance")
         if distance is None:
             self.speak_dialog('robot.no.distance')
             return
         direction = message.data.get("direction")
         if direction is None:
-            self.speak_dialgo('robot.no.direction')
+            self.speak_dialog('robot.no.direction')
             return
-        resp = {'distance' : distance, 'direction' : direction}
+        unit = message.data.get("unit")
+        if unit is None:
+            self.speak_dialog('robot.no.unit')
+            return
+        resp = {'distance' : distance, 'direction' : direction, 'unit' : unit}
         self.speak_dialog('robot.move', data=resp)
 
+    @intent_file_handler('robot.stop.intent')
+    def handle_robot_stop(self, message):
+        self.speak_dialog('robot.stop')
 
 def create_skill():
     return ControllerForRobotSkill()
