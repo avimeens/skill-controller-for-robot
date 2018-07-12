@@ -1,1 +1,1 @@
-move {direction} {distance} 
+(go|move) {direction} (for|) {distance} {unit}
